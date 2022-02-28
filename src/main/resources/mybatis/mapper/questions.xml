@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ottz.questions.dao.IQuestionsDao">
+
+	 <sql id="search">
+		<if test="!@org.apache.commons.lang3.StringUtils@isBlank(searchWord)">
+			<choose>
+				<when test='searchType=="T"'>AND q_title LIKE '%'||#{searchWord}||'%'</when>
+				<when test='searchType=="W"'>AND q_writer LIKE '%'||#{searchWord}||'%'</when>
+				<when test='searchType=="C"'>AND q_content LIKE '%'||#{searchWord}||'%'</when>
+			</choose>
+		</if>
+		<if test="!@org.apache.commons.lang3.StringUtils@isBlank(searchCategory)">
+			AND q_category = #{searchCategory}
+		</if>
+	</sql>
+
+	<select id="getTotalRowCount"
+		parameterType="com.ottz.questions.vo.QuestionsSearchVO" resultType="int">
+		SELECT count(*)  
+		FROM questions
+		WHERE 1 = 1		
+		<include refid="search" />
+	</select>
+	
+	<select id="getQuestionsList"
+		resultType="com.ottz.questions.vo.QuestionsVO"
+		parameterType="com.ottz.questions.vo.QuestionsSearchVO">
+		<include refid="common.prePage" />                             
+		SELECT                                                        
+		       q_no      ,     q_title     ,       q_category     ,
+		       q_writer  ,     q_content   ,       q_hit          ,    
+		       b.comm_nm		AS q_category_nm,
+		       to_char(q_reg_date,'YYYY-MM-DD') AS q_reg_date         			     
+		FROM questions a                                             
+		    ,comm_code b														
+		WHERE a.q_category = b.comm_cd		
+		<include refid="search" />
+			ORDER by q_no desc			
+		<include refid="common.postPage" />		
+	</select>
+	
+	<resultMap type="com.ottz.questions.vo.QuestionsVO" id="questionsAttaches">
+		<collection property="attaches" column="{atchParentNo=q_no, atchCategory=q_type}" 
+		ofType="com.ottz.attach.vo.AttachVO" 
+		select="com.ottz.attach.dao.IAttachDao.getAttachByParentNoList">
+		</collection> 
+	</resultMap>  
+	
+	<select id="getQuestions" parameterType="int"
+		resultType="com.ottz.questions.vo.QuestionsVO" resultMap="questionsAttaches">
+		SELECT          
+			'QUESTIONS' AS q_type,        
+	       q_no      ,     q_title     ,       q_category     ,   
+	       q_writer  ,     q_content   ,   	 q_hit       ,       
+	       b.comm_nm   AS q_category_nm ,
+	       to_char(q_reg_date,'YYYY-MM-DD') AS q_reg_date									
+		FROM  questions a													
+		    , comm_code b													
+		WHERE q_no = #{qNo}
+				AND a.q_category = b.comm_cd
+	</select>
+	
+	<update id="increaseHit" parameterType="int">
+	UPDATE questions SET q_hit = q_hit +1
+	WHERE q_no = #{qNo}
+	</update>
+	
+	<update id="updateQuestions" parameterType="com.ottz.questions.vo.QuestionsVO">
+		UPDATE questions SET
+			  q_title = #{qTitle}
+			, q_category = #{qCategory}
+			, q_content = #{qContent}
+		WHERE q_no = #{qNo}
+	</update>
+	
+	<delete id="deleteQuestions" parameterType="com.ottz.questions.vo.QuestionsVO">
+		DELETE FROM questions
+		WHERE q_no = #{qNo}
+	</delete>
+	
+	<insert id="insertQuestions" parameterType="com.ottz.questions.vo.QuestionsVO">
+		<selectKey keyProperty="qNo" resultType="int" order="BEFORE">
+			SELECT seq_questions.nextval FROM dual
+		</selectKey>
+		INSERT INTO questions (
+	      q_no  , q_title  , q_category
+	    , q_writer  , q_content  , q_hit
+	    , q_reg_date
+		) VALUES (
+   			#{qNo}  , #{qTitle}  , #{qCategory}       
+      	 , #{qWriter}  , #{qContent}  , 0
+      	 , sysdate
+		)
+	</insert>
+	
+	 <select id="getQuestionsMap" resultType="com.ottz.questions.vo.QuestionsVO" parameterType="Map">
+    <![CDATA[
+    SELECT * FROM questions
+    WHERE q_no < #{qNo}
+    AND q_title = #{qTitle}
+    ]]>
+    </select>    
+    
+    <select id="getQuestionsAnotation" resultType="com.ottz.questions.vo.QuestionsVO">
+    <![CDATA[
+    SELECT * FROM questions
+    WHERE q_no < #{qNo}
+    AND q_title = #{qTitle}
+    ]]>
+    </select>
+	
+</mapper> 

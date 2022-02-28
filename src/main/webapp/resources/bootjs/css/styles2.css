@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+
+.container{
+	margin-left: 0px;
+	padding-left: 0px;
+	text-align: left;
+}
+
+.d-flex{ /*서치창 크기 조절  */
+	width: 700px;		
+}
+
+.slideMove{
+	width: 1140px;
+}
+
+#right-control{
+	left: 1065px;
+	top: 46%;
+}
+
+#left-control{
+	left: -85px;
+	top: 46%;
+}
+
+.main{
+	display: flex;
+}
+
+#rankList{
+	width: 450px;
+	margin-top: -9px;
+	font-size: 12px;
+	
+}
+
+.text-center{ /*짝수 순위 색상  */
+	background-color: #24243e;
+}
+
+
+.carousel-inner{
+	margin-top: -90px;
+	margin-left:-100px; 
+}
+
+.text-center{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#rankList th{
+	text-align: center;	
+	background-color: #24243e;
+}
+
+.table{	/*글자색상  */
+     color:#fffaff;
+}
+  
+#rankList{
+        margin-left: 40px;
+        
+  }
+
+.tool{
+	margin-left: 150px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.list-hero img,		 .list-harry img,
+.list-ring img, 	 .list-fantasy img,
+.list-spring img,	 .list-thriller img,
+.list-docu img, 	 .list-random img
+{	/*테마리스트 간격  */
+	margin-left:100px;
+	margin-bottom: 15px;
+	width: 350px;
+	height: 350px;
+	border-radius: 10px;
+	
+}
+
+.hero-title, 	 .harry-title,
+.ring-title, 	 .fantasy-title,
+.spring-title,	 .thriller-title,
+.docu-title,		 .random-title
+{
+	margin-bottom: 30px;	
+	margin-left:90px;
+	color: white; 
+	font-size: 20px; 
+	font-weight: bold; 
+	text-align: center;
+}
+
+  
+.theme-title{
+	 color: white;
+	 text-align: center;
+}
+  
+  
+  
+.main{
+	background-color: transparent !important;
+}
+
+/*search 속 글자 색상 변경하기  */
+.d-flex input::-webkit-input-placeholder {
+  color: black;
+  font-size: 17px;
+
+}
+
+.top{
+	margin-top: 190px;
+	margin-bottom: 300px;
+	text-align: center;
+}
+.d-flex{
+	width: 400px;
+}
+
+.text1{
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.text2{
+	margin-top: 20px;
+	font-size: 30px;
+}
+
+#myCarousel{
+	margin-left: 10%;
+	margin-right: 15%;
+}
+thead{
+	border-top: 11px;
+}

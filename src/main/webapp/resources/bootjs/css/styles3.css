@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+}
+.container{
+	margin-left: 0px;
+	padding-left: 0px;
+	text-align: left;
+}
+
+
+
+
+.html{
+	height: 100% !important;
+}
+
+
+.top h2{
+	text-align: center;
+	margin-top: 100px;
+}
+
+.top h1{
+	text-align: center;
+	font-size: 80px;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+.top img{
+	margin-bottom: 200px;
+	width: 100%;
+	margin-top: 30px;
+}
+.top a{
+	text-decoration : none;
+	margin-bottom: 200px;
+	color: #06c;
+	font-size: 20px;
+	font-weight: bold;
+
+}
+
+
+/*netflix  */
+
+.netflix{
+	background-color: black;
+	height: 810px;
+	margin-bottom: 150px;
+}
+
+.netflix img{
+	display:block; 
+    margin:auto;
+    width: 1500px;
+}
+
+.netflix p{
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	}
+
+.netflix a{
+	text-decoration : none;
+	margin-bottom: 200px;
+	color: #06c;
+	font-size: 20px;
+	font-weight: bold;
+	}
+
+
+
+
+/*watcha  */
+.watcha{
+	background-color: #e70358;
+	height: 750px;
+	margin-bottom: 150px;
+}
+
+.watcha img{
+	display:block; 
+    margin:auto;
+	height: 60%;
+    width: 100%;
+}
+
+.watcha p{
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	}
+
+.watcha a{
+	text-decoration : none;
+	margin-bottom: 200px;
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	}
+	
+/* disney */
+.disney{
+	background-color: black;
+	height: 810px;
+	margin-bottom: 150px;
+}
+
+.disney img{
+	display:block; 
+    margin:auto;
+    width: 800px;
+}
+
+.disney p{
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	margin-top: 70px;
+	}
+
+.disney a{
+	text-decoration : none;
+	margin-bottom: 200px;
+	color: #06c;
+	font-size: 20px;
+	font-weight: bold;
+	}
+
+
+
+
+/* tving */
+.tving{
+	background-color: #ffffff;
+	height: 800px;
+	margin-bottom: 150px;
+}
+
+.tving img{
+	display:block; 
+    margin:auto;
+    width: 100%;
+}
+
+.tving p{
+	font-size: 30px;
+	font-weight: bold;
+	color: #000000;
+	margin-top: -130px;
+	}
+
+.tving a{
+	text-decoration : none;
+	margin-bottom: 200px;
+	color: #06c;
+	font-size: 20px;
+	font-weight: bold;
+	}
+
+
+
+
+
+
+

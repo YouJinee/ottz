@@ -1,0 +1,97 @@
+body {
+	background-color: #ffffff !important;
+	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+	height: 100% !important;
+	text-align: center;
+}
+.ottz {
+	text-align: center;
+	font-size: 80px;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+.table{
+	margin-left: 40%;
+}
+.table .id{
+	margin-right: 10px;
+}
+#memId,#memPass,#memName,#memNickName,#memAddress,#memHp,#emailAdd{
+	width: 180px;
+	height: 25px;
+	margin-left: -80px;
+	margin-bottom: 15px;
+	margin-top: 21px;
+}
+#memId{
+	margin-left: 10px;
+}
+.table th{
+	font-size: 20px;
+}
+
+.test{
+	margin-bottom: 50px;
+}
+
+
+/*취소 , 다음 버튼  */
+.btn_area.double {
+	overflow: hidden;
+	margin: 29px -5px 0;
+	margin-left: 32%;
+	margin-bottom: 49px;
+}
+
+.cancel, .next {
+	display: block;
+	float: left;
+	width: 26%;
+}
+
+#btnCancel {
+	display: block;
+	padding: 15px 0 15px;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration-line: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: #fff;
+	background-color: #8e8e8e;
+}
+
+#btnNext {
+	display: block;
+	padding: 15px 0 15px;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration-line: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: #fff;
+	background-color: #204a87;
+	width: 340px;
+	border: 0;
+	outline: 0;
+}
+
+.cancel {
+	position: relative;
+	right: 10px;
+}
+
+
+
+
+
+
+
+
+
+.container {
+	border: 10px solid #646684;
+}

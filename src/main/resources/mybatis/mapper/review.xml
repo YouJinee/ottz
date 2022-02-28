@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ottz.review.dao.IReviewDao">
+<select id="getReviewCountByParent" parameterType="com.ottz.review.vo.ReviewVO" resultType="int">
+	SELECT count(*)
+	FROM review
+	WHERE rv_parent_no = #{rvParentNo}
+</select>
+
+<select id="getReviewListByParent" parameterType="com.ottz.review.vo.ReviewVO" resultType="com.ottz.review.vo.ReviewVO">
+<include refid="common.prePage" />
+	SELECT m.mem_nickName as rv_mem_name, r.rv_no, r.rv_parent_no, rv_mem_id, rv_content, to_char(rv_reg_date, 'YYYY/MM/DD') AS rv_reg_date
+	FROM review r, member m
+	WHERE rv_parent_no = #{rvParentNo}
+    and r.rv_mem_id = m.mem_id
+	ORDER BY rv_no desc
+<include refid="common.postPage" />
+</select>
+
+<insert id="insertReview" parameterType="com.ottz.review.vo.ReviewVO">
+	INSERT INTO review ( 
+	rv_no, rv_parent_no, rv_mem_id, rv_content, rv_reg_date ) VALUES (
+		rv_seq.nextval, #{rvParentNo}, #{rvMemId}
+		, #{rvContent}, sysdate
+	)
+</insert>
+<select id="getReview" resultType="com.ottz.review.vo.ReviewVO" parameterType="int">
+	SELECT
+	    rv_no , rv_parent_no
+	    , rv_mem_id , rv_content , rv_reg_date
+	FROM review
+	WHERE rv_no = #{rvNo}
+</select>
+<update id="updateReview" parameterType="com.ottz.review.vo.ReviewVO">
+	UPDATE review
+	SET rv_content = #{rvContent}
+	WHERE rv_no = #{rvNo}
+</update>
+
+<delete id="deleteReview" parameterType="com.ottz.review.vo.ReviewVO">
+	DELETE FROM review
+	WHERE rv_no = #{rvNo} 
+</delete>
+</mapper>

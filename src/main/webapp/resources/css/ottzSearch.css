@@ -1,0 +1,434 @@
+body {
+  background-color : #232b3b !important;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  height: 100% !important;
+}
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: white;
+  border-bottom: .25rem solid transparent;
+  font-size: 20px;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: white;
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+.col.mb-5{
+	
+	margin-top: 50px;
+}
+.nav-link {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.footer{
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+.checkOtt input[type="checkbox"]+label{
+	vertical-align: middle;
+    margin-left: 3px;
+
+}
+/*넷플릭스*/
+.checkOtt input[type="checkbox"]+label .netflixImg {
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/netflix.jpg");
+	background-size: 45px;
+	opacity: 60%;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+.checkOtt input[type="checkbox"] {
+	display: none;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .netflixImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/netflix.jpg");
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*디즈니플러스*/
+.checkOtt input[type="checkbox"]+label .disneyImg {
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/disneyPlus.png");
+	background-size: 50px;
+	width: 50px;
+	opacity: 60%;
+	height: 50px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .disneyImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/disneyPlus.png");
+	opacity: 100%;
+	background-size: 50px;
+	width: 50px;
+	height: 50px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*왓챠*/
+.checkOtt input[type="checkbox"]+label .watchaImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/whatcha.png") no-repeat center;
+		
+	background-size: 50px;
+	width: 50px;
+	opacity: 60%;
+	height: 50px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .watchaImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/whatcha.png") no-repeat center;
+	opacity: 100%;
+	background-size: 50px;
+	width: 50px;
+	height: 50px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*웨이브*/
+.checkOtt input[type="checkbox"]+label .wavveImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/wavve.jpg") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .wavveImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/wavve.jpg") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*아마존*/
+.checkOtt input[type="checkbox"]+label .amazonImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/Amazon.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .amazonImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/Amazon.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*애플*/
+.checkOtt input[type="checkbox"]+label .appleImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/appleTV.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .appleImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/appleTV.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*broad*/
+.checkOtt input[type="checkbox"]+label .broadImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/brodwartHD.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .broadImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/brodwartHD.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*wow*/
+.checkOtt input[type="checkbox"]+label .wowImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/wowPresentsPlus.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .wowImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/wowPresentsPlus.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*plex*/
+.checkOtt input[type="checkbox"]+label .plexImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/plex.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .plexImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/plex.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*guide*/
+.checkOtt input[type="checkbox"]+label .guideImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/guideDoc.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .guideImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/guideDoc.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*guide*/
+.checkOtt input[type="checkbox"]+label .curiosityImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/curiosityStream.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .curiosityImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/curiosityStream.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*hoichoi*/
+.checkOtt input[type="checkbox"]+label .hoichoiImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/Hoichoi.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .hoichoiImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/Hoichoi.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*dekkoo*/
+.checkOtt input[type="checkbox"]+label .dekkooImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/Dekkoo.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .dekkooImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/Dekkoo.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*docAlliance*/
+.checkOtt input[type="checkbox"]+label .docAllianceImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/DocAlliance.jpg") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .docAllianceImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/DocAlliance.jpg") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+/*crunchy*/
+.checkOtt input[type="checkbox"]+label .crunchyImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/Crunchyoll.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .crunchyImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/Crunchyoll.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+/*mubi*/
+.checkOtt input[type="checkbox"]+label .mubiImg {
+	
+	padding: 0 0 0 30px;
+	background:
+		url("../images/ottLogo/Mubi.png") no-repeat center;
+	background-size: 45px;
+	width: 45px;
+	opacity: 60%;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+.checkOtt input[type="checkbox"]:checked+label .mubiImg {
+	padding: 0 0 0 30px;
+	background:url("../images/ottLogo/Mubi.png") no-repeat center;
+	opacity: 100%;
+	background-size: 45px;
+	width: 45px;
+	height: 45px;
+	border-radius: 20%;
+	cursor: pointer;
+}

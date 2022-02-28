@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ottz.theme.dao.IThemeDao">
+
+<!-- 	<select id="getHeroTotalRowCount" parameterType="com.ottz.contents.vo.ContentsSearchVO" resultType="int">
+		select  count(*) from contents  
+	</select> -->
+
+
+<!--theme  -->
+	<select id="getTheme"
+		parameterType="com.ottz.contents.vo.ContentsSearchVO"
+		resultType="com.ottz.contents.vo.ContentsVO">
+		SELECT *
+		FROM tb_theme a 
+		  , contents b 
+		WHERE a.tm_mv_con_no = b.con_no 
+		AND a.tm_seq = #{theme}
+	</select>
+	
+	
+	<select id="getGenre"
+		parameterType="com.ottz.contents.vo.ContentsSearchVO"
+		resultType="String">
+		SELECT DISTINCT b.tm_title
+		FROM tb_theme a 
+		  , md_theme b 
+		WHERE a.tm_seq = b.tm_seq 
+		AND a.tm_seq = #{theme}
+	</select>
+	
+	
+	
+	
+	
+	
+
+
+<!--랜덤넣기  -->
+	<select id="getRandom"
+	parameterType="com.ottz.contents.vo.ContentsSearchVO"
+	resultType="com.ottz.contents.vo.ContentsVO">
+		<![CDATA[
+ 	SELECT f.*
+		FROM(
+			  SELECT  rownum as rnum,e.*
+				FROM (SELECT con_no
+				    , con_title, con_org_title, con_img
+				    , con_director , con_score, con_time
+				    , con_age, con_story , con_clip , con_type 
+				    FROM contents
+                    ORDER BY dbms_random.value
+					 ) e
+				)f
+		 where rnum between 1 and 8
+        ]]>
+	</select>
+</mapper>
+

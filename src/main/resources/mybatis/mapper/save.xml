@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ottz.save.dao.ISaveDao">
+<insert id="saveContents" parameterType="com.ottz.save.vo.SaveVO">
+INSERT INTO saved (
+	mem_id, con_no
+) VALUES( #{memId}, #{conNo})
+</insert>
+
+<select id="getSave" parameterType="com.ottz.save.vo.SaveVO" resultType="com.ottz.save.vo.SaveVO">
+SELECT *
+FROM saved
+WHERE mem_id = #{memId}
+AND con_no = #{conNo}
+</select>
+
+<select id="getSaveBox" parameterType="com.ottz.login.vo.UserVO" resultType="com.ottz.save.vo.SaveVO">
+SELECT *
+FROM SAVED a, CONTENTS b
+WHERE a.con_no = b.con_no 
+and a.mem_id = #{userId}
+</select>
+
+<delete id="deleteSaveContents" parameterType="com.ottz.save.vo.SaveVO">
+DELETE FROM SAVED
+WHERE mem_id = #{memId}
+AND con_no = #{conNo}
+</delete>
+
+
+
+</mapper>

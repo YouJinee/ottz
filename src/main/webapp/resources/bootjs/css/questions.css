@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+}
+.container{
+	margin-left: 0px;
+	padding-left: 0px;
+	text-align: left;
+}
+
+
+
+
+.html{
+	height: 100% !important;
+}
+
+/* .header{
+	background: rgba(0,0,0,0.8);
+	height: 65px;
+	width: 100%;
+	display: block;
+}
+ */
+ 
+
+ 

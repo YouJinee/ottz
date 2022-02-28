@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ottz.contents.dao.IContentsDao">
+	<sql id="search">
+	<if test="!@org.apache.commons.lang3.StringUtils@isBlank(searchWord)">
+	 AND con_title LIKE '%'|| #{searchWord} || '%'
+	 </if>
+	 <if test="searchGenre.size != 0">
+	 AND con_no in (
+        select con_no
+        from genre
+       <if test="searchGenre.size ==1">
+       <foreach collection="searchGenre" item="item" close=")">
+       WHERE con_genre like  '%'||#{item}||'%'
+        </foreach>
+       </if>
+       <if test="searchGenre.size >1">
+       <foreach collection="searchGenre" item="item" open="WHERE" separator="or" close=")">
+        con_genre like  '%'||#{item}||'%'
+        </foreach>
+       </if>
+	 </if>
+ 	 <if test="searchOtt.size != 0">
+	 AND con_no in (
+        select con_no
+        from ott
+       <if test="searchOtt.size ==1">
+       <foreach collection="searchOtt" item="item" close=")">
+       WHERE con_ott like  '%'||#{item}||'%'
+        </foreach>
+       </if>
+       <if test="searchOtt.size >1">
+       <foreach collection="searchOtt" item="item" open="WHERE" separator="or" close=")">
+        con_ott like  '%'||#{item}||'%'
+        </foreach>
+       </if>
+	 </if>
+	</sql>
+
+	<select id="getContentsList"
+		parameterType="com.ottz.contents.vo.ContentsSearchVO"
+		resultType="com.ottz.contents.vo.ContentsVO">
+		<include refid="common.prePage"/>
+		SELECT
+		DISTINCT *
+		FROM CONTENTS 
+		WHERE 1=1
+		<include refid="search"/>
+		<include refid="common.postPage"/>
+		
+	</select>
+
+	<select id="getTotalRowCount"
+		parameterType="com.ottz.contents.vo.ContentsSearchVO" resultType="int">
+		SELECT DISTINCT COUNT(*)
+		FROM CONTENTS
+	</select>
+	
+	<select id="getContent" parameterType="String" resultType="com.ottz.contents.vo.ContentsVO">
+	SELECT con_no, con_title, con_org_title, con_img, con_director, REGEXP_REPLACE (con_score, '[^[:digit:]]', '') as con_score, con_time, 
+			con_story, con_clip, con_age
+	FROM contents
+	WHERE con_no like #{conNo}
+	</select>
+	
+	<select id="getOtt" parameterType="String" resultType="String">
+	SELECT listagg(con_ott, ',' ) within group (ORDER BY con_ott) as con_ott
+    FROM ott
+    WHERE con_no like #{conNo}
+    GROUP BY con_no  
+	</select>
+	<select id="getGenre" parameterType="String" resultType="String">
+	SELECT listagg(con_genre, ',' ) within group (ORDER BY con_genre) as con_genre
+    FROM genre
+    WHERE con_no like #{conNo}
+    GROUP BY con_no 
+	</select>
+	
+	<select id="insertScore" parameterType="com.ottz.contents.vo.ScoreVO" resultType="int">
+		INSERT INTO score(mem_id, con_no, mem_score)
+		VALUES (#{memId}, #{conNo}, #{score} )
+	</select>
+	
+	<select id="getScoreList" parameterType="String" resultType="com.ottz.contents.vo.ContentsVO">
+		SELECT a.con_no, a.con_title, a.con_org_title, a.con_img, b.mem_score as con_score
+		FROM contents a, score b
+		WHERE a.con_no = b.CON_NO
+		AND b.mem_id = #{memId}
+	</select>
+	
+	<select id="getScore" parameterType="com.ottz.contents.vo.ScoreVO" resultType="com.ottz.contents.vo.ScoreVO">
+		SELECT *
+		FROM score
+		WHERE mem_id = #{memId}
+		AND con_no = #{conNo}
+	</select>
+	
+	<update id="updateScore" parameterType="com.ottz.contents.vo.ScoreVO">
+	UPDATE score
+	SET mem_score = #{score}
+	WHERE con_no = #{conNo}
+	AND mem_id = #{memId}
+	</update>
+</mapper>
+
